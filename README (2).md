@@ -87,3 +87,33 @@ make
 make test
 ```
 
+
+# QUIC Server and Client Execution
+
+This explains how to run the LSQUIC-based server:
+
+---
+
+## 🔧 Server Setup
+
+To start the server, run command:
+
+```bash
+./wsslserver -d /mnt/myssd/ngtcp2/www \
+  --htdocs /mnt/myssd/ngtcp2/www \
+  0.0.0.0 4433 \
+  <path-to-server-key.pem> \
+  <path-to-server-cert.pem>
+```
+
+This explains how to run the LSQUIC-based  client: 
+
+
+## 🔧 Client Setup
+
+
+```bash
+./wsslclient https://localhost:4433/1mb.txt \
+  --cert=<path-to-client-cert.pem> \
+  --key=<path-to-client-key.pem>
+```
