@@ -99,11 +99,9 @@ This explains how to run the LSQUIC-based server:
 To start the server, run command:
 
 ```bash
-./wsslserver -d /mnt/myssd/ngtcp2/www \
-  --htdocs /mnt/myssd/ngtcp2/www \
-  0.0.0.0 4433 \
-  <path-to-server-key.pem> \
-  <path-to-server-cert.pem>
+./http_server -c www.example.com,
+fullchain.pem,
+privkey_no_pass.pem -s \0.0.0.0:4433 -r ./
 ```
 
 This explains how to run the LSQUIC-based  client: 
@@ -113,7 +111,7 @@ This explains how to run the LSQUIC-based  client:
 
 
 ```bash
-./wsslclient https://localhost:4433/1mb.txt \
-  --cert=<path-to-client-cert.pem> \
-  --key=<path-to-client-key.pem>
+./http_client -H www.example.com -s
+127.0.0.1:4433 -p \\\100MBfile.bin -7
+./download_files -t
 ```
