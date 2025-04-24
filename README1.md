@@ -16,18 +16,13 @@ Getting Started
 The quiche [HTTP/3 module] provides a high level API for sending and
 receiving HTTP requests and responses on top of the QUIC transport protocol.
 
-Calling quiche from C/C++
+Building quiche from C/C++
 -------------------------
 
 
 When running ``cargo build``, a static library called ``libquiche.a`` will be
 built automatically alongside the Rust one. This is fully stand-alone and can
 be linked directly into C/C++ applications.
-
-Note that in order to enable the FFI API, the ``ffi`` feature must be enabled (it
-is disabled by default), by passing ``--features ffi`` to ``cargo``.
-
-[thin C API]: https://github.com/cloudflare/quiche/blob/master/quiche/include/quiche.h
 
 Building
 --------
