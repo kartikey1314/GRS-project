@@ -76,17 +76,14 @@ This server is built using [Cloudflare's quiche](https://github.com/cloudflare/q
 Make sure you have Rust installed. Then, clone the repository and build the server:
 
 ```bash
-./target/release/http3-server \
-  --cert examples/cert.crt \
-  --key examples/cert.key \
-  127.0.0.1 4433
+RUST_LOG=debug ./quiche-server   --cert ~/quiche/tools/testserver/cert.pem   --key ~/quiche/tools/testserver/key.pem   --listen 0.0.0.0:4433   --root ~/quiche/tools/testserver/
 ```
 
  Running Client
 Use the command to fetch a file from a running HTTP/3 server:
 
 ```bash
-./target/release/http3-client https://127.0.0.1:4433/1mb.txt
+./quiche-client --no-verify https://127.0.0.1:4433/100MBfile.bin   > quiche_downloaded.bin
 ```
 
 
